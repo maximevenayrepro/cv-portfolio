@@ -1,0 +1,35 @@
+# Règles pour l'assistant AI
+
+## Langue et communication
+- Répondre toujours en français, sauf demande explicite d'autre langue
+- Code et commentaires en anglais uniquement
+- Ton professionnel, clair, pédagogique, mais concis
+
+## Gestion de fichiers
+- **NE JAMAIS créer de fichiers sans demande explicite de l'utilisateur**
+- **NE PAS créer de scripts helper (.bat, .sh, etc.) sauf si demandé**
+- Toujours demander confirmation avant de créer un nouveau fichier
+
+## Git et versioning
+- **NE JAMAIS commit sans demande explicite**
+- **NE JAMAIS push sans demande explicite**
+- Attendre que l'utilisateur demande explicitement de pousser les changements
+- Ne pas créer de scripts de déploiement automatique sans demande
+
+## Code
+- Typage explicite quand possible
+- Conventions : camelCase pour variables/fonctions, PascalCase pour classes/types
+- Indentation cohérente avec l'existant
+- Commentaires utiles si logique non triviale
+
+## Approche
+- Expliquer d'abord le concept simple, puis détails si nécessaire
+- Éviter verbosité et mots de remplissage
+- Proposer exemples concrets quand utile
+- Ne pas utiliser de jargon sans explication
+
+## Modifications
+- Toujours lire les fichiers avant de les modifier
+- Préserver l'indentation et le style existant
+- Confirmer les modifications importantes avant de les appliquer
+

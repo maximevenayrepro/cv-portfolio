@@ -27,8 +27,12 @@ const burger = document.querySelector('.burger');
 const navLinks = document.querySelector('.nav-links');
 
 burger.addEventListener('click', () => {
+    console.log('Burger clicked');
     navLinks.classList.toggle('active');
     burger.classList.toggle('active');
+    document.body.classList.toggle('menu-open');
+    console.log('Nav links classes:', navLinks.className);
+    console.log('Nav links display:', window.getComputedStyle(navLinks).display);
 });
 
 // Close mobile menu when clicking on a link
@@ -36,6 +40,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
         navLinks.classList.remove('active');
         burger.classList.remove('active');
+        document.body.classList.remove('menu-open');
     });
 });
 
@@ -361,7 +366,7 @@ document.addEventListener('mousemove', (e) => {
 console.log('%c👋 Salut!', 'font-size: 20px; font-weight: bold; color: #3b82f6;');
 console.log('%cVous aimez fouiller dans le code ? Moi aussi! 🚀', 'font-size: 14px; color: #8b5cf6;');
 console.log('%cSi vous cherchez un développeur passionné, contactez-moi!', 'font-size: 12px; color: #ec4899;');
-console.log('%cmaxvenayre@hotmail.com', 'font-size: 12px; font-weight: bold; color: #10b981;');
+console.log('%cmaxime.venayre.pro@gmail.com', 'font-size: 12px; font-weight: bold; color: #10b981;');
 
 // Performance monitoring
 if (window.performance && window.performance.timing) {
