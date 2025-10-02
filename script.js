@@ -51,7 +51,6 @@ window.addEventListener('resize', () => {
 });
 
 burger.addEventListener('click', () => {
-    console.log('Burger clicked');
     if (window.innerWidth <= 768) {
         ensureMenuContainerForMobile();
     }
@@ -72,10 +71,6 @@ burger.addEventListener('click', () => {
         navLinks.style.flexDirection = 'column';
         navLinks.style.background = '#0f172a';
     }
-
-    console.log('Nav links classes:', navLinks.className);
-    console.log('Nav links display:', window.getComputedStyle(navLinks).display);
-    console.log('Nav links dimensions:', navLinks.offsetWidth, navLinks.offsetHeight);
 });
 
 // Close mobile menu when clicking on a link
