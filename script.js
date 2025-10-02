@@ -25,14 +25,57 @@ window.addEventListener('scroll', () => {
 // Mobile menu toggle
 const burger = document.querySelector('.burger');
 const navLinks = document.querySelector('.nav-links');
+let originalNavParent = navLinks.parentElement;
+
+function ensureMenuContainerForMobile() {
+    if (window.innerWidth <= 768 && navLinks.parentElement !== document.body) {
+        document.body.appendChild(navLinks);
+    }
+}
+
+function ensureMenuContainerForDesktop() {
+    if (window.innerWidth > 768 && navLinks.parentElement !== originalNavParent) {
+        originalNavParent.appendChild(navLinks);
+        navLinks.removeAttribute('style');
+        navLinks.classList.remove('active');
+        document.body.classList.remove('menu-open');
+    }
+}
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth <= 768) {
+        ensureMenuContainerForMobile();
+    } else {
+        ensureMenuContainerForDesktop();
+    }
+});
 
 burger.addEventListener('click', () => {
     console.log('Burger clicked');
+    if (window.innerWidth <= 768) {
+        ensureMenuContainerForMobile();
+    }
+
     navLinks.classList.toggle('active');
     burger.classList.toggle('active');
     document.body.classList.toggle('menu-open');
+
+    // Force dimensions in case CSS isn't working
+    if (navLinks.classList.contains('active')) {
+        navLinks.style.position = 'fixed';
+        navLinks.style.inset = '70px 0 0 0';
+        navLinks.style.width = '100vw';
+        navLinks.style.left = '0';
+        navLinks.style.right = '0';
+        navLinks.style.zIndex = '2147483647';
+        navLinks.style.display = 'flex';
+        navLinks.style.flexDirection = 'column';
+        navLinks.style.background = '#0f172a';
+    }
+
     console.log('Nav links classes:', navLinks.className);
     console.log('Nav links display:', window.getComputedStyle(navLinks).display);
+    console.log('Nav links dimensions:', navLinks.offsetWidth, navLinks.offsetHeight);
 });
 
 // Close mobile menu when clicking on a link
