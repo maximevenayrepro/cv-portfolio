@@ -166,6 +166,35 @@ body {
     box-shadow: var(--shadow-glow);
 }
 
+/* Language Selector */
+.lang-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.lang-selector a {
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    transition: all 0.3s ease;
+}
+
+.lang-selector a.active {
+    background: rgba(59, 130, 246, 0.2);
+    color: var(--primary-light);
+}
+
+.lang-selector a:hover {
+    background: rgba(59, 130, 246, 0.3);
+    color: var(--text-primary);
+}
+
+.lang-selector a::after {
+    display: none !important;
+}
+
 .burger {
     display: none;
     cursor: pointer;
