@@ -195,6 +195,36 @@ body {
     display: none !important;
 }
 
+/* Print Button */
+.btn-print {
+    background: rgba(16, 185, 129, 0.2);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    color: var(--success);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+}
+
+.btn-print:hover {
+    background: rgba(16, 185, 129, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.btn-print i {
+    font-size: 1.1rem;
+}
+
+.btn-print::after {
+    display: none !important;
+}
+
 .burger {
     display: none;
     cursor: pointer;
@@ -1300,6 +1330,311 @@ footer {
 @media (prefers-reduced-motion: no-preference) {
     html {
         scroll-behavior: smooth;
+    }
+}
+
+/* Print Styles */
+@media print {
+    /* Reset colors for print */
+    * {
+        background: white !important;
+        color: black !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    /* Hide non-essential elements */
+    #navbar,
+    .burger,
+    .btn-print,
+    .btn-contact,
+    .lang-selector,
+    .hero-background,
+    .hero-shapes,
+    .shape,
+    .scroll-indicator,
+    .hero-cta,
+    footer,
+    .contact-cta,
+    .hero-tech-stack {
+        display: none !important;
+    }
+
+    /* Page setup */
+    @page {
+        size: A4;
+        margin: 1.5cm 2cm;
+    }
+
+    body {
+        font-size: 11pt;
+        line-height: 1.4;
+        color: black;
+        background: white;
+    }
+
+    .container {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    /* Hero section simplification */
+    #hero {
+        min-height: auto;
+        padding: 1rem 0;
+        page-break-after: avoid;
+    }
+
+    .hero-content {
+        text-align: left;
+    }
+
+    .hero-title {
+        font-size: 24pt;
+        margin-bottom: 0.5rem;
+    }
+
+    .hero-title .name {
+        background: none;
+        color: black;
+        -webkit-text-fill-color: black;
+    }
+
+    .typed-text,
+    .cursor {
+        display: none;
+    }
+
+    .hero-subtitle,
+    .hero-description {
+        font-size: 12pt;
+        color: #333;
+    }
+
+    /* Sections */
+    .section {
+        padding: 1rem 0;
+        page-break-inside: avoid;
+    }
+
+    .section-title {
+        font-size: 16pt;
+        color: black;
+        border-bottom: 2px solid #333;
+        padding-bottom: 0.3rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .title-underline {
+        display: none;
+    }
+
+    /* Skills */
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .skill-card {
+        border: 1px solid #ddd;
+        padding: 0.8rem;
+        page-break-inside: avoid;
+    }
+
+    .skill-card h3 {
+        font-size: 12pt;
+        margin-bottom: 0.5rem;
+    }
+
+    .skill-icon {
+        display: none;
+    }
+
+    .tag {
+        border: 1px solid #333;
+        color: black;
+        background: white;
+        padding: 0.2rem 0.5rem;
+        font-size: 9pt;
+    }
+
+    /* Timeline */
+    .timeline {
+        border-left: 2px solid #333;
+    }
+
+    .timeline-item {
+        page-break-inside: avoid;
+        margin-bottom: 1rem;
+    }
+
+    .timeline-dot {
+        background: black;
+        border-color: black;
+    }
+
+    .timeline-content {
+        background: white;
+        border: 1px solid #ddd;
+        padding: 0.8rem;
+    }
+
+    .timeline-header h3 {
+        font-size: 12pt;
+    }
+
+    .company {
+        color: #333;
+        font-size: 11pt;
+    }
+
+    .period {
+        color: #666;
+        font-size: 10pt;
+    }
+
+    .tech-badge {
+        border: 1px solid #333;
+        color: black;
+        background: white;
+        padding: 0.2rem 0.5rem;
+        font-size: 8pt;
+    }
+
+    .timeline-achievements {
+        font-size: 10pt;
+    }
+
+    .timeline-achievements li {
+        margin-bottom: 0.3rem;
+    }
+
+    .highlight {
+        font-weight: bold;
+        background: none;
+        color: black;
+    }
+
+    /* Projects */
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .project-card {
+        border: 1px solid #ddd;
+        padding: 0.8rem;
+        page-break-inside: avoid;
+    }
+
+    .project-card h3 {
+        font-size: 12pt;
+    }
+
+    .project-icon {
+        display: none;
+    }
+
+    .project-highlight {
+        background: none;
+        color: black;
+        border: 1px solid #333;
+        padding: 0.3rem;
+    }
+
+    /* Profile cards */
+    .profil-content {
+        display: block;
+    }
+
+    .profil-card {
+        border: 1px solid #ddd;
+        padding: 0.8rem;
+        margin-bottom: 0.8rem;
+        page-break-inside: avoid;
+    }
+
+    .profil-icon {
+        display: none;
+    }
+
+    /* Education */
+    .education-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .education-card {
+        border: 1px solid #ddd;
+        padding: 0.8rem;
+        page-break-inside: avoid;
+    }
+
+    .education-icon {
+        display: none;
+    }
+
+    /* Contact */
+    .contact-content {
+        display: block;
+    }
+
+    .contact-info {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+    }
+
+    .contact-item {
+        border: 1px solid #ddd;
+        padding: 0.5rem;
+        page-break-inside: avoid;
+    }
+
+    .contact-icon {
+        display: none;
+    }
+
+    .contact-details h4 {
+        font-size: 10pt;
+        margin-bottom: 0.2rem;
+    }
+
+    .contact-details a,
+    .contact-details p {
+        font-size: 9pt;
+        color: black;
+    }
+
+    /* Links */
+    a {
+        color: black;
+        text-decoration: none;
+    }
+
+    a[href^="http"]:after {
+        content: " (" attr(href) ")";
+        font-size: 8pt;
+        color: #666;
+    }
+
+    a[href^="#"]:after,
+    a[href^="mailto:"]:after {
+        content: "";
+    }
+
+    /* Page breaks */
+    h2, h3 {
+        page-break-after: avoid;
+    }
+
+    ul, ol {
+        page-break-inside: avoid;
+    }
+
+    /* Ensure main content starts on first page */
+    main {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
     }
 }
 

@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Maxime Venayre - Version Imprimable</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            font-size: 10pt;
+            line-height: 1.5;
+            color: #1a1a1a;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .print-container {
+            max-width: 21cm;
+            margin: 0 auto;
+            background: white;
+            padding: 2cm;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        /* Header */
+        .cv-header {
+            text-align: center;
+            margin-bottom: 0.6cm;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .cv-header h1 {
+            font-size: 22pt;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 0.3cm;
+        }
+
+        .cv-header .subtitle {
+            font-size: 12pt;
+            font-weight: 600;
+            color: #2563eb;
+            margin-bottom: 0.2cm;
+        }
+
+        .cv-header .tagline {
+            font-size: 10pt;
+            color: #666;
+            margin-bottom: 0.3cm;
+        }
+
+        /* Contact Info */
+        .contact-bar {
+            display: flex;
+            justify-content: center;
+            gap: 0.8cm;
+            flex-wrap: nowrap;
+            font-size: 9pt;
+            color: #333;
+        }
+
+        .contact-bar .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.15cm;
+            white-space: nowrap;
+        }
+
+        .contact-bar i {
+            color: #2563eb;
+            font-size: 9pt;
+        }
+
+        /* Section */
+        .cv-section {
+            margin-bottom: 0.8cm;
+            page-break-inside: avoid;
+        }
+
+        .cv-section h2 {
+            font-size: 14pt;
+            font-weight: 700;
+            color: #2563eb;
+            margin-bottom: 0.4cm;
+            padding-bottom: 0.15cm;
+            border-bottom: 2px solid #2563eb;
+            text-transform: uppercase;
+            letter-spacing: 0.5pt;
+        }
+
+        /* Profile */
+        .profile-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.3cm;
+        }
+
+        .profile-item {
+            background: #f8f9fa;
+            padding: 0.25cm;
+            border-left: 3px solid #2563eb;
+        }
+
+        .profile-item strong {
+            display: block;
+            color: #2563eb;
+            margin-bottom: 0.15cm;
+        }
+
+        .profile-item p {
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5cm;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 0.4cm;
+        }
+
+        .skill-category h3 {
+            font-size: 10pt;
+            font-weight: 600;
+            color: #2563eb;
+            margin-bottom: 0.3cm;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.15cm;
+        }
+
+        .skill-tags .tag {
+            font-size: 8pt;
+            padding: 0.1cm 0.25cm;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+
+        /* Experience */
+        .experience-item {
+            margin-bottom: 0.6cm;
+            page-break-inside: avoid;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.2cm;
+        }
+
+        .experience-header h3 {
+            font-size: 11pt;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .experience-header .period {
+            font-size: 9pt;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .company {
+            font-size: 10pt;
+            color: #2563eb;
+            font-weight: 600;
+            margin-bottom: 0.2cm;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.15cm;
+            margin-bottom: 0.3cm;
+        }
+
+        .tech-stack .badge {
+            font-size: 8pt;
+            padding: 0.1cm 0.25cm;
+            background: #e3f2fd;
+            color: #1565c0;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+
+        .experience-item ul {
+            margin-left: 0.5cm;
+            font-size: 9pt;
+        }
+
+        .experience-item li {
+            margin-bottom: 0.15cm;
+            line-height: 1.4;
+        }
+
+        .experience-item ul ul {
+            margin-top: 0.1cm;
+            margin-left: 0.4cm;
+        }
+
+        .experience-item ul ul li {
+            font-size: 8.5pt;
+        }
+
+        .highlight {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.3cm;
+        }
+
+        .project-card {
+            background: #f8f9fa;
+            padding: 0.25cm;
+            border-left: 3px solid #2563eb;
+        }
+
+        .project-card h3 {
+            font-size: 10pt;
+            font-weight: 600;
+            color: #2563eb;
+            margin-bottom: 0.15cm;
+        }
+
+        .project-card p {
+            font-size: 8.5pt;
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        .project-highlight {
+            font-size: 8pt;
+            font-weight: 600;
+            color: #dc2626;
+            margin-top: 0.2cm;
+        }
+
+        /* Education */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5cm;
+        }
+
+        .education-item {
+            background: #f8f9fa;
+            padding: 0.4cm;
+        }
+
+        .education-item h3 {
+            font-size: 10pt;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 0.1cm;
+        }
+
+        .education-item .school {
+            font-size: 9pt;
+            color: #2563eb;
+            font-weight: 500;
+            margin-bottom: 0.1cm;
+        }
+
+        .education-item .year {
+            font-size: 9pt;
+            color: #666;
+            margin-bottom: 0.2cm;
+        }
+
+        .education-item .description,
+        .education-item .projects {
+            font-size: 8.5pt;
+            line-height: 1.4;
+        }
+
+        /* Print Actions */
+        .print-actions {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .print-actions button,
+        .print-actions a {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-print {
+            background: #2563eb;
+            color: white;
+        }
+
+        .btn-print:hover {
+            background: #1d4ed8;
+        }
+
+        .btn-back {
+            background: #6b7280;
+            color: white;
+        }
+
+        .btn-back:hover {
+            background: #4b5563;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .print-container {
+                max-width: 100%;
+                padding: 0;
+                box-shadow: none;
+            }
+
+            .print-actions {
+                display: none;
+            }
+
+            @page {
+                size: A4;
+                margin: 1.5cm 2cm;
+            }
+
+            .cv-section {
+                page-break-inside: avoid;
+            }
+
+            .experience-item {
+                page-break-inside: avoid;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .print-container {
+                padding: 1cm;
+            }
+
+            .profile-content,
+            .skills-grid,
+            .projects-grid,
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .print-actions {
+                position: static;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-actions">
+        <button onclick="window.print()" class="btn-print">
+            <i class="fas fa-print"></i> Imprimer / PDF
+        </button>
+        <a href="index.html" class="btn-back">
+            <i class="fas fa-arrow-left"></i> Retour
+        </a>
+    </div>
+
+    <div class="print-container">
+        <!-- Header -->
+        <header class="cv-header">
+            <h1>Maxime Venayre</h1>
+            <div class="subtitle">Ingénieur R&D Senior</div>
+            <div class="tagline">20 ans d'expérience • Du microcontrôleur au cloud • Systèmes embarqués & IoT</div>
+            <div class="contact-bar">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>maxime.venayre.pro@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <span>@maximevenayrepro</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <span>Maxime Venayre</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>France</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Profile -->
+        <section class="cv-section">
+            <h2>Profil</h2>
+            <div class="profile-content">
+                <div class="profile-item">
+                    <strong>Expérience</strong>
+                    <p>20 ans dans les drones, la robotique et l'IoT. Profil polyvalent couvrant l'ensemble de la chaîne technique.</p>
+                </div>
+                <div class="profile-item">
+                    <strong>Expertise</strong>
+                    <p>Cycle complet : conception d'architecture, développement et industrialisation. Utilisation maîtrisée de l'IA générative.</p>
+                </div>
+                <div class="profile-item">
+                    <strong>Réalisations</strong>
+                    <p>Capacité démontrée à mener un projet de POC à production, en contexte startup et industriel.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section class="cv-section">
+            <h2>Compétences Clés</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Langages & Outils</h3>
+                    <div class="skill-tags">
+                        <span class="tag">C/C++</span>
+                        <span class="tag">C#</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">Qt Creator</span>
+                        <span class="tag">VS Code</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Applications & Interfaces</h3>
+                    <div class="skill-tags">
+                        <span class="tag">Qt/QML</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">OpenGL</span>
+                        <span class="tag">OpenCV</span>
+                        <span class="tag">FFmpeg</span>
+                        <span class="tag">ASP.NET</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Embarqué & Data</h3>
+                    <div class="skill-tags">
+                        <span class="tag">STM32</span>
+                        <span class="tag">ESP32</span>
+                        <span class="tag">FreeRTOS</span>
+                        <span class="tag">ROS/ROS2</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">InfluxDB</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section class="cv-section">
+            <h2>Projets Marquants</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Station de contrôle robots terrestres</h3>
+                    <p>Architecture modulaire, multi-flux vidéo, intégration ArduPilot. Prototypes validés terrain.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Pipeline vidéo ultra-basse latence</h3>
+                    <p>Optimisation Wi-Fi/injection, outils de mesure, amélioration significative de la latence.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Vision 360° → 2D + SLAM</h3>
+                    <p>Chaîne traitement temps réel, reconstruction 3D, exécution partagée cloud/edge.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="cv-section">
+            <h2>Formation</h2>
+            <div class="education-grid">
+                <div class="education-item">
+                    <h3>Diplôme d'ingénieur</h3>
+                    <div class="school">ESIEA (Laval, France)</div>
+                    <div class="year">2006</div>
+                    <div class="description">Informatique, électronique, automatique</div>
+                    <div class="projects">Projets : moteur 3D avec IA, jeux avec IA, drone sous-marin</div>
+                </div>
+                <div class="education-item">
+                    <h3>Baccalauréat scientifique</h3>
+                    <div class="school">Lycée François Ier (Fontainebleau)</div>
+                    <div class="year">2001</div>
+                    <div class="description">Spécialité mathématiques</div>
+                    <div class="projects">Options : informatique et sciences économiques</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section class="cv-section">
+            <h2>Expériences Professionnelles</h2>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3>Responsable R&D Logiciel</h3>
+                    <span class="period">2018 – aujourd'hui</span>
+                </div>
+                <div class="company">Skydrone</div>
+                <div class="tech-stack">
+                    <span class="badge">C++/Qt</span>
+                    <span class="badge">ArduPilot</span>
+                    <span class="badge">QGroundControl</span>
+                    <span class="badge">STM32/ESP32</span>
+                    <span class="badge">Vidéo IP</span>
+                    <span class="badge">Linux</span>
+                </div>
+                <ul>
+                    <li><strong>Station de contrôle au sol</strong> pour robots terrestres (pompiers/militaire)
+                        <ul>
+                            <li>Architecture Qt/QML modulaire, interface opérateur temps réel</li>
+                            <li>Télémétrie, supervision radio, vidéo multi-flux HD avec enregistrement</li>
+                            <li class="highlight">Déployée sur de nombreux théâtres opérationnels critiques</li>
+                        </ul>
+                    </li>
+                    <li><strong>Fork majeur de QGroundControl et ArduPilot</strong> avec fonctionnalités sur mesure</li>
+                    <li><strong>Développement firmware</strong> pour cartes électroniques de supervision (STM32, ESP32)</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3>Consultant R&D logiciel</h3>
+                    <span class="period">2022 – aujourd'hui</span>
+                </div>
+                <div class="company">Insensia</div>
+                <div class="tech-stack">
+                    <span class="badge">ESP32</span>
+                    <span class="badge">MQTT(S)</span>
+                    <span class="badge">Docker</span>
+                    <span class="badge">InfluxDB</span>
+                    <span class="badge">Node.js</span>
+                </div>
+                <ul>
+                    <li>Développement firmware pour capteurs IoT (CO₂, température, humidité, présence)</li>
+                    <li>Architecture backend & data : ingestion MQTT, time-series (InfluxDB), pipeline de traitement</li>
+                    <li>Encadrement de la conception d'une web app de supervision</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3>Fondateur & Consultant principal</h3>
+                    <span class="period">2022 – 2024</span>
+                </div>
+                <div class="company">MVE Presta (freelance)</div>
+                <ul>
+                    <li>Création et gestion d'une SAS • Missions R&D : embarqué, cloud, IoT • Accompagnement d'équipes techniques</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3>Responsable R&D</h3>
+                    <span class="period">2015 – 2017</span>
+                </div>
+                <div class="company">Nano Racing</div>
+                <ul>
+                    <li>Système de transmission vidéo/data ultra-basse latence (injection Wi-Fi) pour courses</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3>Responsable R&D</h3>
+                    <span class="period">2014 – 2015</span>
+                </div>
+                <div class="company">Novalta</div>
+                <ul>
+                    <li>Extraction vidéo 2D à partir de flux 360° ; reconstruction 3D / SLAM ; traitements cloud</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3>Analyste Développeur Full-Stack</h3>
+                    <span class="period">2006 – 2013</span>
+                </div>
+                <div class="company">MGDIS</div>
+                <ul>
+                    <li>Outils de reporting automatisé et gestion documentaire • Migration VB → C#/ASP.NET</li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+</body>
+</html>
+
